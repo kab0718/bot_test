@@ -1,5 +1,7 @@
 from slackbot.bot import respond_to, listen_to
+import MeCab
 
-@listen_to('私は(.*)です')
+@listen_to('(.*)')
 def hello(message, something):
-    message.reply('こんにちは！{0}さん！'.format(something))
+    m = MeCab.Tagger("-Ochasen")
+    message.reply(m.parse(something))
