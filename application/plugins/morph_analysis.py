@@ -3,5 +3,5 @@ import MeCab
 
 @listen_to('(.*)')
 def hello(message, something):
-    m = MeCab.Tagger("-Ochasen")
+    m = MeCab.Tagger("-Ochasen -d C:\mecab-ipadic-neologd")
     message.reply(m.parse(something))
